@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "281512774678",
+    "firebase_url": "https://elforge-23582.firebaseio.com",
+    "project_id": "elforge-23582",
+    "storage_bucket": "elforge-23582.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281512774678:android:a2891e9824f11b4e",
+        "android_client_info": {
+          "package_name": "com.epicodus.andrewrusso.elforge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281512774678-v82b8k2mv418fro2mrhgor15mgfe1o6s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.andrewrusso.elforge",
+            "certificate_hash": "3C13E8CA3B3D643BA834E766CA758C311A3AF972"
+          }
+        },
+        {
+          "client_id": "281512774678-00a2m4ekj1qgliktkt7p441gnrvc8vou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIWajA8nYxAz2zEerKGmyNicBSnNEVjOk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "281512774678-00a2m4ekj1qgliktkt7p441gnrvc8vou.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
