@@ -9,9 +9,14 @@ package com.epicodus.andrewrusso.elforge;
         public static final String GAME_DB_API_KEY = BuildConfig.GAME_DB_API_KEY;
         public static final String GAME_NAME_TITLE = "gamename";
         public static final String GAME_BASE_URL = "http://www.giantbomb.com/api/search";
-        public static final String API_KEY_QUERY_PARAMETER = "api_key";
+        public static final String API_KEY_QUERY = "api_key";
         public static final String QUERY_PARAMETER = "query";
-
+        public static final String FORMAT = "format";
+        public static final String FORMAT_TYPE = "json";
+        public static final String JSON = "json";
+        public static final String LIMIT = "limit";
+        public static final String FIELD_LIST = "field_list";
+        public static final String FIND_GAMES_FIELD_LIST = "name,id,image";
 
     }
 

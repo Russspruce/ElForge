@@ -18,13 +18,18 @@ import okhttp3.Call;
 
 
 public class GameService {
-    public static void findGames(String gameListTextView, Callback callback) {
+    public static void findGames(String query, Callback callback) {
 
         OkHttpClient client = new OkHttpClient.Builder().build();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.GAME_BASE_URL).newBuilder();
+        urlBuilder.addQueryParameter(Constants.FORMAT, Constants.FORMAT_TYPE)
+                .addQueryParameter(Constants.API_KEY_QUERY, Constants.GAME_DB_API_KEY)
+                .addQueryParameter(Constants.FIELD_LIST, Constants.FIND_GAMES_FIELD_LIST)
+                .addQueryParameter(Constants.LIMIT, "20")
+                .addQueryParameter(Constants.QUERY_PARAMETER, query);
+        String url = urlBuilder.build().toString();
 
-        String url = "http://www.giantbomb.com/api/search/?api_key=\"+GAME_DB_API_KEY+ \"&format=json&query=\"+GAME_NAME_TITLE+\"&resources=game";
         Log.d("url", url);
 
         Request request = new Request.Builder().url(url).build();
