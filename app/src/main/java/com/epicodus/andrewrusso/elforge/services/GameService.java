@@ -7,6 +7,8 @@ package com.epicodus.andrewrusso.elforge.services;
 
 import android.util.Log;
 
+import com.epicodus.andrewrusso.elforge.Constants;
+
 import okhttp3.Call;
         import okhttp3.Callback;
         import okhttp3.HttpUrl;
@@ -20,10 +22,9 @@ public class GameService {
 
         OkHttpClient client = new OkHttpClient.Builder().build();
 
-//        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.GAME_DB_API_KEY).newBuilder();
-//        urlBuilder.addQueryParameter("query", gameListTextView);
-//        urlBuilder.addQueryParameter("api_key", Constants.GAME_DB_API_KEY);
-        String url = urlBuilder.build().toString();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.GAME_BASE_URL).newBuilder();
+
+        String url = "http://www.giantbomb.com/api/search/?api_key=\"+GAME_DB_API_KEY+ \"&format=json&query=\"+GAME_NAME_TITLE+\"&resources=game";
         Log.d("url", url);
 
         Request request = new Request.Builder().url(url).build();
@@ -31,3 +32,4 @@ public class GameService {
         Call call = client.newCall(request);
         call.enqueue(callback);
     }
+}

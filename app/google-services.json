@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "281512774678-h82m9hdefodlhk71ajsnu3astcmp3ihd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.andrewrusso.elforge",
+            "certificate_hash": "289565AB29DA99C02B3E7FB7467867E49FC54415"
+          }
+        },
+        {
           "client_id": "281512774678-v82b8k2mv418fro2mrhgor15mgfe1o6s.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
