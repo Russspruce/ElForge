@@ -21,6 +21,10 @@ This app was inspired by my group of friends, as we seem to have a difficult tim
 
 Internet Game Database: https://www.igdb.com/
 
+### Credited Resources
+
+Icon made by [Freepik](http://www.freepik.com/) from www.flaticon.com 
+
 ### License
 
 *This software is licensed under the MIT license.  See below for more details on licensing.*
