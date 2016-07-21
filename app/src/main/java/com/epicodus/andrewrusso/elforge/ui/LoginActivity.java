@@ -11,7 +11,7 @@ import com.epicodus.andrewrusso.elforge.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends AppCompatActivity  implements View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.registerTextView) TextView mRegisterTextView;
 
     @Override
@@ -25,10 +25,12 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
+
         if (view == mRegisterTextView) {
-            Intent intent = new Intent (LoginActivity.this, CreateAccountActivity.class);
+            Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
             startActivity(intent);
             finish();
         }
+
     }
 }
