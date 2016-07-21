@@ -2,7 +2,9 @@ package com.epicodus.andrewrusso.elforge.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,12 +15,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.andrewrusso.elforge.R;
+import com.epicodus.andrewrusso.elforge.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -39,6 +50,10 @@ import butterknife.ButterKnife;
     private ProgressDialog mAuthProgressDialog;
     private String mName;
 
+    private SharedPreferences.Editor mEditor;
+    private DatabaseReference mDatabase;
+    private SharedPreferences mSharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +64,16 @@ import butterknife.ButterKnife;
         mAuth = FirebaseAuth.getInstance();
         createAuthStateListener();
 
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
         mLoginTextView.setOnClickListener(this);
         mCreateUserButton.setOnClickListener(this);
         createAuthProgressDialog();
     }
+
 
     @Override
     public void onStart() {
@@ -133,6 +154,14 @@ import butterknife.ButterKnife;
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
+
+                    User currentUser = new User(user.getDisplayName(), user.getUid(), user.getEmail(), new ArrayList<String>());
+
+                    Gson gson = new Gson();
+                    String json = gson.toJson(currentUser);
+                    mEditor.putString("currentUser", json).apply();
+
+
                     Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
@@ -171,6 +200,19 @@ import butterknife.ButterKnife;
         return true;
     }
 
+        private void createUser(final FirebaseUser firebaseUser) {
+            List<String> groupIds = new ArrayList<>();
+            User user = new User(firebaseUser.getDisplayName(), firebaseUser.getUid(), firebaseUser.getEmail(), groupIds);
+            String key = user.getId();
+
+            Map<String, Object> userValues = user.toMap();
+
+            Map<String, Object> childUpdates = new HashMap<>();
+            childUpdates.put("/users/" + key, userValues);
+
+            mDatabase.updateChildren(childUpdates);
+        }
+
         private void createFirebaseUserProfile(final FirebaseUser user) {
 
             UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
@@ -183,6 +225,7 @@ import butterknife.ButterKnife;
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
+                                createUser(user);
                                 Log.d(TAG, user.getDisplayName());
                             }
                         }
