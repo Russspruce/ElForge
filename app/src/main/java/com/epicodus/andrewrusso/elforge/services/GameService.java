@@ -52,15 +52,14 @@ public class GameService {
             String jsonData = response.body().string();
             if(response.isSuccessful()) {
                 JSONObject gameDBJSON = new JSONObject(jsonData);
-                JSONArray gamesJSON = gameDBJSON.getJSONArray("games");
+                JSONArray gamesJSON = gameDBJSON.getJSONArray("results");
                 for (int x = 0; x < gamesJSON.length(); x++) {
                     JSONObject gameJSON = gamesJSON.getJSONObject(x);
                     String name = gameJSON.getString("name");
-                    String deck = gameJSON.getString("deck");
                     String id = gameJSON.getString("id");
-                    String imageUrl = gameJSON.getString("imageUrl");
+                    String image = gameJSON.getString("image");
 
-                    Game game = new Game(name, deck, id, imageUrl);
+                    Game game = new Game(name, id, image);
 
                     games.add(game);
                 }
