@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.epicodus.andrewrusso.elforge.R;
 import com.epicodus.andrewrusso.elforge.models.Game;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -58,6 +59,7 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameVi
         }
 
         public void bindGame(Game game) {
+            Picasso.with(mContext).load(game.getImageUrl()).into(mGameImage);
             mGameTextView.setText(game.getName());
         }
     }

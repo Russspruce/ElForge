@@ -5,36 +5,31 @@ package com.epicodus.andrewrusso.elforge.models;
  */
 public class Game {
     private String name;
-//    private String deck;
     private String id;
-    private String image;
+    private String imageUrl;
 
     public Game() {}
 
 
 
 
-    public Game(String name, String id, String image) {
+    public Game(String name, String id, String imageUrl) {
         this.name = name;
-//        this.deck = deck;
         this.id = id;
-        this.image = image;
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
         return name;
     }
 
-//    public String getDeck() {
-//        return deck;
-//    }
 
     public String getId() {
         return id;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
 

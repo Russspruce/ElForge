@@ -57,9 +57,12 @@ public class GameService {
                     JSONObject gameJSON = gamesJSON.getJSONObject(x);
                     String name = gameJSON.getString("name");
                     String id = gameJSON.getString("id");
-                    String image = gameJSON.getString("image");
-
-                    Game game = new Game(name, id, image);
+                    JSONObject image = gameJSON.optJSONObject("image");
+                    String imageUrl = "http://cdn8.staztic.com/app/a/1221/1221023/im-not-available-right-now-1-1-s-307x512.jpg";
+                    if(image != null) {
+                        imageUrl = image.optString("medium_url");
+                    }
+                    Game game = new Game(name, id, imageUrl);
 
                     games.add(game);
                 }
