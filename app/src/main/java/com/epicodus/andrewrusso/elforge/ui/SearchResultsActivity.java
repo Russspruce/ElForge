@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.epicodus.andrewrusso.elforge.R;
+import com.epicodus.andrewrusso.elforge.models.Game;
 import com.epicodus.andrewrusso.elforge.services.GameService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import okhttp3.Call;
@@ -17,6 +19,8 @@ import okhttp3.Response;
 
 public class SearchResultsActivity extends AppCompatActivity {
     public static final String TAG = SearchResultsActivity.class.getSimpleName();
+
+    public ArrayList<Game> mGames = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -8,6 +8,14 @@ package com.epicodus.andrewrusso.elforge.services;
 import android.util.Log;
 
 import com.epicodus.andrewrusso.elforge.Constants;
+import com.epicodus.andrewrusso.elforge.models.Game;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.Call;
         import okhttp3.Callback;
@@ -37,4 +45,37 @@ public class GameService {
         Call call = client.newCall(request);
         call.enqueue(callback);
     }
+
+    public ArrayList<Game> gameResults(Response response) {
+        ArrayList<Game> games = new ArrayList<>();
+        try {
+            String jsonData = response.body().string();
+            if(response.isSuccessful()) {
+                JSONObject gameDBJSON = new JSONObject(jsonData);
+                JSONArray gamesJSON = gameDBJSON.getJSONArray("games");
+                for (int x = 0; x < gamesJSON.length(); x++) {
+                    JSONObject gameJSON = gamesJSON.getJSONObject(x);
+                    String name = gameJSON.getString("name");
+                    String deck = gameJSON.getString("deck");
+                    String id = gameJSON.getString("id");
+                    String imageUrl = gameJSON.getString("imageUrl");
+
+                    Game game = new Game(name, deck, id, imageUrl);
+
+                    games.add(game);
+                }
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return games;
+
+
+    }
 }
+
+
+
