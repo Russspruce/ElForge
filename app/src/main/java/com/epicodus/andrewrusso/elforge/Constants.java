@@ -17,6 +17,7 @@ package com.epicodus.andrewrusso.elforge;
         public static final String LIMIT = "limit";
         public static final String FIELD_LIST = "field_list";
         public static final String FIND_GAMES_FIELD_LIST = "name,id,image";
+        public static final String FIREBASE_CHILD_GAMES = "games";
 
     }
 

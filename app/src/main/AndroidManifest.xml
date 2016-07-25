@@ -20,8 +20,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.SearchResultsActivity" />
-        <activity android:name=".ui.AboutActivity"></activity>
-        <activity android:name=".ui.GameDetailActivity"></activity>
+        <activity android:name=".ui.AboutActivity" />
+        <activity android:name=".ui.GameDetailActivity" />
+        <activity android:name=".ui.QueuedGameListActivity" />
+        <activity android:name=".ui.Test"></activity>
     </application>
 
 </manifest>

@@ -2,6 +2,8 @@ package com.epicodus.andrewrusso.elforge.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,12 +23,17 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Bind(R.id.searchParam) EditText mSearchParam;
     @Bind(R.id.searchButton) Button mSearchButton;
     @Bind(R.id.aboutButton) Button mAboutButton;
+    @Bind(R.id.queuedButton) Button mQueuedButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +41,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+
         mSearchButton.setOnClickListener(this);
         mAboutButton.setOnClickListener(this);
+        mQueuedButton.setOnClickListener(this);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -106,13 +118,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (v == mAboutButton) {
 
-//            Context context = getApplicationContext();
-//            CharSequence text = "Hello toast!";
-//            int duration = Toast.LENGTH_SHORT;
-//            Toast toast = Toast.makeText(context, text, duration);
-//            toast.show();
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
             startActivity(intent);
+        }
+
+        if (v == mQueuedButton) {
+                Intent intent = new Intent(MainActivity.this, QueuedGameListActivity.class);
+                startActivity(intent);
         }
     }
 }

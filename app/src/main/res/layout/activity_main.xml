@@ -24,9 +24,8 @@
         android:text="Search"
         android:id="@+id/searchButton"
         android:layout_below="@+id/searchParam"
-        android:layout_alignLeft="@+id/aboutButton"
-        android:layout_alignStart="@+id/aboutButton"
-        android:layout_marginTop="53dp" />
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -44,4 +43,13 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Queue"
+        android:id="@+id/queuedButton"
+        android:layout_above="@+id/aboutButton"
+        android:layout_alignLeft="@+id/aboutButton"
+        android:layout_alignStart="@+id/aboutButton" />
 </RelativeLayout>

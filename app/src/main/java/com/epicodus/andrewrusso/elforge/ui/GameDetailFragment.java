@@ -9,9 +9,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.epicodus.andrewrusso.elforge.Constants;
 import com.epicodus.andrewrusso.elforge.R;
 import com.epicodus.andrewrusso.elforge.models.Game;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -22,7 +26,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GameDetailFragment extends Fragment {
+public class GameDetailFragment extends Fragment implements View.OnClickListener{
     @Bind(R.id.gameImage) ImageView mImageLabel;
     @Bind(R.id.gameTextView) TextView mNameLabel;
     @Bind(R.id.gameQueueButton) Button mQueueButton;
@@ -54,7 +58,21 @@ public class GameDetailFragment extends Fragment {
 
         mNameLabel.setText(mGame.getName());
 
+        mQueueButton.setOnClickListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mQueueButton) {
+            DatabaseReference gameRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_GAMES);
+            gameRef.push().setValue(mGame);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 }
