@@ -32,7 +32,7 @@ public class GameDetailFragment extends Fragment {
     public static GameDetailFragment newInstance(Game game) {
         GameDetailFragment gameDetailFragment = new GameDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("game", Parcels.wrap(game));
+        args.putParcelable("games", Parcels.wrap(game));
         gameDetailFragment.setArguments(args);
         return gameDetailFragment;
     }
@@ -40,7 +40,7 @@ public class GameDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mGame = Parcels.unwrap(getArguments().getParcelable("game"));
+        mGame = Parcels.unwrap(getArguments().getParcelable("games"));
     }
 
 

@@ -6,6 +6,7 @@ import org.parceler.Parcel;
 /**
  * Created by andrewrusso on 7/21/16.
  */
+@Parcel
 public class Game {
     private String name;
     private String id;
