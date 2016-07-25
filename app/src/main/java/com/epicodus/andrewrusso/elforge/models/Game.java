@@ -1,5 +1,8 @@
 package com.epicodus.andrewrusso.elforge.models;
 
+
+import org.parceler.Parcel;
+
 /**
  * Created by andrewrusso on 7/21/16.
  */
