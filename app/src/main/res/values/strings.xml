@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">ElForge</string>
+    <string name="app_name">El Forge</string>
     <string name="search">Search Games</string>
     <string name="queue">Queued Games</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="about">About ElForge</string>
+    <string name="about">About</string>
+    <string name="about_title">About ElForge</string>
     <string name="about_info">An app that will allow users to invite their friends to play games using an invite system.  Users will send out invites for a game at a specific time and date, and will get confirmations that they will attend.</string>
 </resources>

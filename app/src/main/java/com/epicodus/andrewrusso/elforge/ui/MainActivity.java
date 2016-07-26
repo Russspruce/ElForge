@@ -51,6 +51,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAppTitleTextView.setTypeface(ostrichFont);
 
 
+        Typeface oswald = Typeface.createFromAsset(getAssets(), "fonts/Oswald-Regular.ttf");
+        mQueuedButton.setTypeface(oswald);
+        mAboutButton.setTypeface(oswald);
+        mSearchButton.setTypeface(oswald);
+
+
+
+
         mSearchButton.setOnClickListener(this);
         mAboutButton.setOnClickListener(this);
         mQueuedButton.setOnClickListener(this);
@@ -90,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            return true;
 //        }
 //        return super.onOptionsItemSelected(item);
+//
 //    }
 
     private void logout() {
@@ -140,4 +149,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             finish();
         }
     }
+
+
 }

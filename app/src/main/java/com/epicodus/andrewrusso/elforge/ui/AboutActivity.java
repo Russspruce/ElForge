@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.graphics.Typeface;
 
 import com.epicodus.andrewrusso.elforge.R;
 
@@ -12,6 +13,9 @@ import butterknife.ButterKnife;
 
 public class AboutActivity extends AppCompatActivity {
     @Bind(R.id.aboutTextView) TextView mAboutTextView;
+    @Bind(R.id.infoTextView) TextView mInfoTextView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,5 +25,8 @@ public class AboutActivity extends AppCompatActivity {
 
         Typeface ostrichFont = Typeface.createFromAsset(getAssets(), "fonts/OstrichSansInline-Regular.otf");
         mAboutTextView.setTypeface(ostrichFont);
+
+        Typeface oswald = Typeface.createFromAsset(getAssets(), "fonts/Oswald-Regular.ttf");
+        mInfoTextView.setTypeface(oswald);
     }
 }

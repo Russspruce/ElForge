@@ -6,4 +6,15 @@
         <!--android:title="Logout"-->
         <!--android:visible="true"-->
         <!--app:showAsAction="never" />-->
+    <item
+        android:id="@+id/action_friends"
+        android:title="Friends"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_games_scheduled"
+        android:icon="@drawable/ic_perm_identity_black_24dp"
+        android:title="Upcoming Games"
+        android:visible="true"
+        app:showAsAction="never" />
 </menu>

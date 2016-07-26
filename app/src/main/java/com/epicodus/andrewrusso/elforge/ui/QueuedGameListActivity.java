@@ -40,7 +40,6 @@ public class QueuedGameListActivity extends AppCompatActivity implements OnStart
         ButterKnife.bind(this);
 
 
-
         setUpFirebaseAdapter();
     }
     private void setUpFirebaseAdapter() {
