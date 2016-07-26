@@ -19,10 +19,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.SearchResultsActivity" />
-        <activity android:name=".ui.AboutActivity" />
+        <activity android:name=".ui.SearchResultsActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.epicodus.andrewrusso.elforge.ui.MainActivity">
+        </meta-data>
+        </activity>
+        <activity android:name=".ui.AboutActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.andrewrusso.elforge.ui.MainActivity">
+            </meta-data>
+        </activity>
         <activity android:name=".ui.GameDetailActivity" />
-        <activity android:name=".ui.QueuedGameListActivity" />
+        <activity android:name=".ui.QueuedGameListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.andrewrusso.elforge.ui.MainActivity">
+            </meta-data>
+        </activity>
         <activity android:name=".ui.Test"></activity>
     </application>
 

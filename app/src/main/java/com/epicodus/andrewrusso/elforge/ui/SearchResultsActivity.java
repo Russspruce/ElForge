@@ -1,14 +1,22 @@
 package com.epicodus.andrewrusso.elforge.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.epicodus.andrewrusso.elforge.Constants;
 import com.epicodus.andrewrusso.elforge.R;
 import com.epicodus.andrewrusso.elforge.adapters.GameListAdapter;
 import com.epicodus.andrewrusso.elforge.models.Game;
@@ -24,11 +32,15 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class SearchResultsActivity extends AppCompatActivity {
-    public static final String TAG = SearchResultsActivity.class.getSimpleName();
+
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private String mRecentSearch;
+
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
-    private GameListAdapter mAdapter;
 
+    private GameListAdapter mAdapter;
     public ArrayList<Game> mGames = new ArrayList<>();
 
     @Override
@@ -38,14 +50,57 @@ public class SearchResultsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String searchParam = intent.getStringExtra("searchParam");
-        getGames(searchParam);
+        String searchTitle = intent.getStringExtra("searchTitle");
+
+        getGames(searchTitle);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentSearch = mSharedPreferences.getString(Constants.PREFERENCES_KEY, null);
+
+        if (mRecentSearch != null) {
+            getGames(mRecentSearch);
+        }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                addToSharedPreferences(query);
+                getGames(query);
+                return false;
+
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+
+        });
+
+        return true;
     }
 
-    private void getGames(String searchParam) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void getGames(String searchTitle) {
         final GameService gameService = new GameService();
 
-        gameService.findGames(searchParam, new Callback() {
+        gameService.findGames(searchTitle, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
@@ -78,4 +133,9 @@ public class SearchResultsActivity extends AppCompatActivity {
             }
         });
     }
+    private void addToSharedPreferences(String searchTitle) {
+        mEditor.putString(Constants.PREFERENCES_KEY, searchTitle).apply();
+    }
+
+
 }

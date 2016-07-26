@@ -10,6 +10,8 @@ import com.epicodus.andrewrusso.elforge.R;
 import com.epicodus.andrewrusso.elforge.adapters.FirebaseGameViewHolder;
 import com.epicodus.andrewrusso.elforge.models.Game;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,7 +33,10 @@ public class QueuedGameListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_results);
         ButterKnife.bind(this);
 
-        mGameReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GAMES);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mGameReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GAMES).child(uid);
         setUpFirebaseAdapter();
     }
     private void setUpFirebaseAdapter() {

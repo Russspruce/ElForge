@@ -11,6 +11,7 @@ public class Game {
     private String name;
     private String id;
     private String imageUrl;
+    private String pushId;
 
     public Game() {}
 
@@ -37,5 +38,7 @@ public class Game {
     }
 
 
-
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
 }

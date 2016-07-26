@@ -3,6 +3,7 @@ package com.epicodus.andrewrusso.elforge.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.andrewrusso.elforge.R;
@@ -30,10 +32,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    @Bind(R.id.searchParam) EditText mSearchParam;
+    @Bind(R.id.appTitleTextView) TextView mAppTitleTextView;
     @Bind(R.id.searchButton) Button mSearchButton;
     @Bind(R.id.aboutButton) Button mAboutButton;
     @Bind(R.id.queuedButton) Button mQueuedButton;
+    @Bind(R.id.logout) Button mLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +47,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEditor = mSharedPreferences.edit();
 
+        Typeface ostrichFont = Typeface.createFromAsset(getAssets(), "fonts/OstrichSansInline-Regular.otf");
+        mAppTitleTextView.setTypeface(ostrichFont);
+
 
         mSearchButton.setOnClickListener(this);
         mAboutButton.setOnClickListener(this);
         mQueuedButton.setOnClickListener(this);
+        mLogout.setOnClickListener(this);
+
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -74,15 +82,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_logout) {
-            logout();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//        if (id == R.id.action_logout) {
+//            logout();
+//            return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     private void logout() {
         FirebaseAuth.getInstance().signOut();
@@ -109,10 +117,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mSearchButton) {
-            String searchParam = mSearchParam.getText().toString();
 
             Intent intent = new Intent(MainActivity.this, SearchResultsActivity.class);
-            intent.putExtra("searchParam", searchParam);
             startActivity(intent);
         }
 
@@ -125,6 +131,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == mQueuedButton) {
                 Intent intent = new Intent(MainActivity.this, QueuedGameListActivity.class);
                 startActivity(intent);
+        }
+        if (v == mLogout) {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         }
     }
 }
