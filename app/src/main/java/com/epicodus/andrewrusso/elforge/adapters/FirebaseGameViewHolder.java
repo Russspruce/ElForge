@@ -32,6 +32,8 @@ public class FirebaseGameViewHolder extends RecyclerView.ViewHolder implements V
     View mView;
     Context mContext;
 
+    public ImageView mGameImage;
+
     public FirebaseGameViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
@@ -40,14 +42,14 @@ public class FirebaseGameViewHolder extends RecyclerView.ViewHolder implements V
     }
 
     public void bindGame(Game game) {
-        ImageView gameImage = (ImageView) mView.findViewById(R.id.gameImage);
+        mGameImage = (ImageView) mView.findViewById(R.id.gameImage);
         TextView gameTextView = (TextView) mView.findViewById(R.id.gameTextView);
 
         Picasso.with(mContext)
                 .load(game.getImageUrl())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
                 .centerCrop()
-                .into(gameImage);
+                .into(mGameImage);
 
         gameTextView.setText(game.getName());
     }
