@@ -41,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/search"
+        android:background="@color/colorButton"
         android:id="@+id/searchButton"
         android:layout_above="@+id/queuedButton"
         android:layout_centerHorizontal="true" />
@@ -52,7 +53,9 @@
         android:id="@+id/aboutButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="30dp"
+        android:background="@color/colorButton"
+        />
 
     <Button
         android:layout_width="match_parent"
@@ -61,5 +64,7 @@
         android:id="@+id/queuedButton"
         android:layout_above="@+id/aboutButton"
         android:layout_alignLeft="@+id/aboutButton"
-        android:layout_alignStart="@+id/aboutButton" />
+        android:layout_alignStart="@+id/aboutButton"
+        android:background="@color/colorButton"
+        />
 </RelativeLayout>

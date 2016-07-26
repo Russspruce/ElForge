@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -47,6 +48,11 @@ public class QueuedGameListActivity extends AppCompatActivity implements OnStart
         String uid = user.getUid();
 
         mGameReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GAMES).child(uid);
+
+        Query query = FirebaseDatabase.getInstance()
+                .getReference(Constants.FIREBASE_CHILD_GAMES)
+                .child(uid)
+                .orderByChild(Constants.FIREBASE_QUERY);
 
         mFirebaseAdapter = new FirebaseGameListAdapter(Game.class, R.layout.queue_list_item_drag, FirebaseGameViewHolder.class,
                         mGameReference, this, this);

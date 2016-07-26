@@ -18,6 +18,7 @@ package com.epicodus.andrewrusso.elforge;
         public static final String FIND_GAMES_FIELD_LIST = "name,id,image";
         public static final String FIREBASE_CHILD_GAMES = "games";
         public static final String PREFERENCES_KEY = "gametitle";
+        public static final String FIREBASE_QUERY = "index";
 
     }
 
