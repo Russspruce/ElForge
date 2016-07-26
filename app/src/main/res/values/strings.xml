@@ -7,6 +7,8 @@
     <string name="gameFragmentInfo">Select from the following options below:</string>
 
     <string name="about">About</string>
-    <string name="about_title">About ElForge</string>
+    <string name="about_title">About El Forge</string>
     <string name="about_info">An app that will allow users to invite their friends to play games using an invite system.  Users will send out invites for a game at a specific time and date, and will get confirmations that they will attend.</string>
+    <string name="welcome">Welcome to El Forge</string>
+    <string name="github">Learn more on my GitHub</string>
 </resources>

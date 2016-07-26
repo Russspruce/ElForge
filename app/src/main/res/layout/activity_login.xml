@@ -76,4 +76,16 @@
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:id="@+id/introTextView"
+        android:textColor="@color/colorPrimaryLight"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:paddingTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
