@@ -4,7 +4,7 @@
     <string name="queue">Queued Games</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gameFragmentInfo">Select from the following options below:</string>
 
     <string name="about">About</string>
     <string name="about_title">About ElForge</string>
