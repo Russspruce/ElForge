@@ -40,6 +40,7 @@ import butterknife.ButterKnife;
     @Bind(R.id.createUserButton) Button mCreateUserButton;
     @Bind(R.id.nameEditText) EditText mNameEditText;
     @Bind(R.id.emailEditText) EditText mEmailEditText;
+    @Bind(R.id.phoneEditText) EditText mPhoneEditText;
     @Bind(R.id.passwordEditText) EditText mPasswordEditText;
     @Bind(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
     @Bind(R.id.loginTextView)
@@ -116,6 +117,7 @@ import butterknife.ButterKnife;
         mName = mNameEditText.getText().toString().trim();
         final String name = mNameEditText.getText().toString().trim();
         final String email = mEmailEditText.getText().toString().trim();
+        final String phone = mPhoneEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
 
@@ -123,8 +125,9 @@ import butterknife.ButterKnife;
 
         boolean validEmail = isValidEmail(email);
         boolean validName = isValidName(name);
+        boolean validPhone = isValidPhone(phone);
         boolean validPassword = isValidPassword(password, confirmPassword);
-        if (!validEmail || !validName || !validPassword) return;
+        if (!validEmail || !validName || !validPassword || !validPhone) return;
 
         mAuthProgressDialog.show();
 
@@ -188,6 +191,14 @@ import butterknife.ButterKnife;
         }
         return true;
     }
+
+        private boolean isValidPhone(String phone) {
+            if (phone.equals("")) {
+                mPhoneEditText.setError("Please a phone number");
+                return false;
+            }
+            return true;
+        }
 
     private boolean isValidPassword(String password, String confirmPassword) {
         if (password.length() < 6) {
