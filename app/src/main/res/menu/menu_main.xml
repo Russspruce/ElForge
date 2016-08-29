@@ -8,13 +8,29 @@
         <!--app:showAsAction="never" />-->
     <item
         android:id="@+id/action_friends"
+        android:icon="@drawable/ic_face_black_24dp"
         android:title="Friends"
         android:visible="true"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_games_scheduled"
         android:icon="@drawable/ic_perm_identity_black_24dp"
-        android:title="Upcoming Games"
+        android:title="Current Groups"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_search"
+        android:title="Search Games"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_queue"
+        android:title="Queued Games"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_about"
+        android:title="About"
         android:visible="true"
         app:showAsAction="never" />
 </menu>

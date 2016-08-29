@@ -11,4 +11,7 @@
     <string name="about_info">An app that will allow users to invite their friends to play games using an invite system.  Users will send out invites for a game at a specific time and date, and will get confirmations that they will attend.</string>
     <string name="welcome">Welcome to El Forge</string>
     <string name="github">Learn more on my GitHub</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

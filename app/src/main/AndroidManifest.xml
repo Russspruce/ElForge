@@ -20,30 +20,27 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.SearchResultsActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.epicodus.andrewrusso.elforge.ui.MainActivity">
-        </meta-data>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.andrewrusso.elforge.ui.MainActivity"></meta-data>
         </activity>
         <activity android:name=".ui.AboutActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.andrewrusso.elforge.ui.MainActivity">
-            </meta-data>
+                android:value="com.epicodus.andrewrusso.elforge.ui.MainActivity"></meta-data>
         </activity>
         <activity android:name=".ui.GameDetailActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.epicodus.andrewrusso.elforge.ui.SearchResultsActivity">
-        </meta-data>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.andrewrusso.elforge.ui.SearchResultsActivity"></meta-data>
         </activity>
         <activity android:name=".ui.QueuedGameListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.andrewrusso.elforge.ui.MainActivity">
-            </meta-data>
+                android:value="com.epicodus.andrewrusso.elforge.ui.MainActivity"></meta-data>
         </activity>
-        <activity android:name=".ui.Test"></activity>
+        <activity android:name=".ui.Test" />
+        <activity android:name=".ui.UserDetailActivity"></activity>
     </application>
 
 </manifest>

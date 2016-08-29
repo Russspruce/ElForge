@@ -90,16 +90,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onCreateOptionsMenu(menu);
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//        if (id == R.id.action_logout) {
-//            logout();
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_friends) {
+            Intent intent = new Intent(MainActivity.this, Test.class);
+            startActivity(intent);
+        }
+
+        if (id == R.id.action_queue) {
+            Intent intent = new Intent(MainActivity.this, QueuedGameListActivity.class);
+            startActivity(intent);
+        }
+
+        if (id == R.id.action_about) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
+        }
+
+        if (id == R.id.action_search) {
+            Intent intent = new Intent(MainActivity.this, SearchResultsActivity.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+
+    }
 
     private void logout() {
         FirebaseAuth.getInstance().signOut();
@@ -125,22 +141,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (v == mSearchButton) {
-
-            Intent intent = new Intent(MainActivity.this, SearchResultsActivity.class);
-            startActivity(intent);
-        }
-
-        if (v == mAboutButton) {
-
-            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-            startActivity(intent);
-        }
-
-        if (v == mQueuedButton) {
-                Intent intent = new Intent(MainActivity.this, QueuedGameListActivity.class);
-                startActivity(intent);
-        }
+//        if (v == mSearchButton) {
+//
+//            Intent intent = new Intent(MainActivity.this, SearchResultsActivity.class);
+//            startActivity(intent);
+//        }
+//
+//        if (v == mAboutButton) {
+//
+//            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+//            startActivity(intent);
+//        }
+//
+//        if (v == mQueuedButton) {
+//                Intent intent = new Intent(MainActivity.this, QueuedGameListActivity.class);
+//                startActivity(intent);
+//        }
         if (v == mLogout) {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);

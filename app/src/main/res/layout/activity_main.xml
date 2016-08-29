@@ -37,36 +37,36 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/search"
-        android:background="@drawable/button_border"
-        android:textSize="25sp"
-        android:id="@+id/searchButton"
-        android:layout_above="@+id/queuedButton"
-        android:layout_centerHorizontal="true" />
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/search"-->
+        <!--android:background="@drawable/button_border"-->
+        <!--android:textSize="25sp"-->
+        <!--android:id="@+id/searchButton"-->
+        <!--android:layout_above="@+id/queuedButton"-->
+        <!--android:layout_centerHorizontal="true" />-->
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/about"
-        android:id="@+id/aboutButton"
-        android:textSize="25sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/button_border"
-        />
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/about"-->
+        <!--android:id="@+id/aboutButton"-->
+        <!--android:textSize="25sp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginBottom="30dp"-->
+        <!--android:background="@drawable/button_border"-->
+        <!--/>-->
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/queue"
-        android:id="@+id/queuedButton"
-        android:textSize="25sp"
-        android:layout_above="@+id/aboutButton"
-        android:layout_alignLeft="@+id/aboutButton"
-        android:layout_alignStart="@+id/aboutButton"
-        android:background="@drawable/button_border"/>
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/queue"-->
+        <!--android:id="@+id/queuedButton"-->
+        <!--android:textSize="25sp"-->
+        <!--android:layout_above="@+id/aboutButton"-->
+        <!--android:layout_alignLeft="@+id/aboutButton"-->
+        <!--android:layout_alignStart="@+id/aboutButton"-->
+        <!--android:background="@drawable/button_border"/>-->
 </RelativeLayout>
