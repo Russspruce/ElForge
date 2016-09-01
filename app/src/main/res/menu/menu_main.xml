@@ -13,9 +13,8 @@
         android:visible="true"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_games_scheduled"
-        android:icon="@drawable/ic_perm_identity_black_24dp"
-        android:title="Current Groups"
+        android:id="@+id/action_convo"
+        android:title="Group Chat"
         android:visible="true"
         app:showAsAction="never" />
     <item

@@ -47,17 +47,17 @@
         <!--android:layout_above="@+id/queuedButton"-->
         <!--android:layout_centerHorizontal="true" />-->
 
-    <!--<Button-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/about"-->
-        <!--android:id="@+id/aboutButton"-->
-        <!--android:textSize="25sp"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginBottom="30dp"-->
-        <!--android:background="@drawable/button_border"-->
-        <!--/>-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/about"
+        android:id="@+id/aboutButton"
+        android:textSize="25sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_border"
+        />
 
     <!--<Button-->
         <!--android:layout_width="match_parent"-->

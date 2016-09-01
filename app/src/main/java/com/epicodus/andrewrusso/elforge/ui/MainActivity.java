@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Bind(R.id.appTitleTextView) TextView mAppTitleTextView;
-    @Bind(R.id.searchButton) Button mSearchButton;
+//    @Bind(R.id.searchButton) Button mSearchButton;
     @Bind(R.id.aboutButton) Button mAboutButton;
-    @Bind(R.id.queuedButton) Button mQueuedButton;
+//    @Bind(R.id.queuedButton) Button mQueuedButton;
     @Bind(R.id.logout) Button mLogout;
 
     @Override
@@ -52,16 +52,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         Typeface oswald = Typeface.createFromAsset(getAssets(), "fonts/Oswald-Regular.ttf");
-        mQueuedButton.setTypeface(oswald);
+//        mQueuedButton.setTypeface(oswald);
         mAboutButton.setTypeface(oswald);
-        mSearchButton.setTypeface(oswald);
-
-
-
-
-        mSearchButton.setOnClickListener(this);
+//        mSearchButton.setTypeface(oswald);
+//
+//
+//
+//
+//        mSearchButton.setOnClickListener(this);
         mAboutButton.setOnClickListener(this);
-        mQueuedButton.setOnClickListener(this);
+//        mQueuedButton.setOnClickListener(this);
         mLogout.setOnClickListener(this);
 
 
@@ -113,6 +113,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
 
+        if (id == R.id.action_convo) {
+            Intent intent = new Intent(MainActivity.this, ConvoActivity.class);
+            startActivity(intent);
+        }
+
         return super.onOptionsItemSelected(item);
 
     }
@@ -147,11 +152,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            startActivity(intent);
 //        }
 //
-//        if (v == mAboutButton) {
-//
-//            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-//            startActivity(intent);
-//        }
+        if (v == mAboutButton) {
+
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
+        }
 //
 //        if (v == mQueuedButton) {
 //                Intent intent = new Intent(MainActivity.this, QueuedGameListActivity.class);
